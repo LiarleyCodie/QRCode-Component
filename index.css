@@ -1,0 +1,140 @@
+:root {
+	font-size: 62.5%;
+
+	--cl0: #d5e1ef;
+	--cl1: #121f32;
+	--cl2: #6d747c;
+	--cl3: #2c7dfa;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+}
+
+
+body {
+	font-family: 'Rubik', sans-serif;
+	min-height: 100vh;
+	background: var(--cl0);
+	display: grid;
+	grid-template-rows: auto 9rem;
+	align-items: center;
+	justify-content: center;
+}
+.main .qrcode-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 28rem;
+	background: #fff;
+	padding: 1.25rem;
+	border-radius: 1.75rem;
+	text-align: center;
+	box-shadow: 0 15px 30px -15px rgba(18, 31, 50, 0.25);
+	gap: 1.5rem;
+}
+
+.qrcode-wrapper .qrcode {
+	border-radius: 1rem;
+	transition: 300ms;
+	transition-timing-function: ease;
+	box-shadow: 0 0 5px -5px rgba(0,0,0,0);
+	animation: shake 300ms ease backwards 1s;
+}
+
+@keyframes shake {
+	25% {
+		transform: rotateZ(3deg);
+	}
+	50% {
+		transform: rotateZ(-3deg);
+	}
+	75% {
+		transform: rotateZ(3deg);
+	}
+	100% {
+		transform: rotateZ(0);
+	}
+}
+
+.qrcode-wrapper .qrcode:hover {
+	transform: scale(1.15);
+	box-shadow: 0 30px 30px -10px rgba(0,0,0, 0.5);
+}
+
+.qrcode-wrapper .title {
+	font-size: 1.7rem;
+	color: var(--cl1);
+	font-weight: 900;
+	width: 90%;
+	margin-top: 0.5rem;
+}
+
+.qrcode-wrapper .description {
+	font-size: 1.2rem;
+	width: 85%;
+	color: var(--cl2);
+	margin-bottom: 2rem;
+}
+
+.qrcode-wrapper {
+	animation: slideDown 600ms ease backwards;
+}
+
+@keyframes slideDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10%);
+		box-shadow: 0 25px 40px -20px rgba(18, 31, 50, 0.15);
+	}
+}
+
+.footer {
+	height: 9rem;
+	width: 100%;
+	display: grid;
+	place-items: center;
+}
+
+.footer .attribution {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-size: 1.3rem;
+	line-height: 150%;
+	padding: 0.5rem 3rem;
+	color: var(--cl2);
+	background: white;
+	border-radius: 4rem;
+	box-shadow: 0 10px 20px -10px rgba(18, 31, 50, 0.25);
+	position: relative;
+	animation: rise 400ms ease backwards 400ms;
+}
+
+@keyframes rise {
+	from {
+		opacity: 0;
+	}
+}
+
+.footer .attribution::before {
+	content: "";
+	border: 15px solid transparent;
+	border-bottom: 10px solid white;
+	position: absolute;
+	top: -50%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.footer .attribution a {
+	color: var(--cl3);
+}
